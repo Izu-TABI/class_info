@@ -9,7 +9,7 @@ from linebot import LineBotApi
 from linebot.models import TextSendMessage
 
 
-def schedle_test():
+def schedle_task():
   dt = datetime.datetime.now()
   CHANNEL_ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
   line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
@@ -95,7 +95,7 @@ def schedle_test():
     line_bot_api.broadcast(messages=massages)
 
 
-schedule.every(7200).seconds.do(schedle_test)
+schedule.every(7200).seconds.do(schedle_task)
 
 while True:
   schedule.run_pending()
